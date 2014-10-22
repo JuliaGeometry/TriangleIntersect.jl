@@ -3,7 +3,7 @@
 
 # TriangleIntersect
 
-Find if and where a light ray intersects a triangle (in 3D of course). This is optimized for speed.
+Find if and where a light ray intersects a triangle (in 3D of course). This is optimized for speed. See nice general explanation [here](http://geomalgorithms.com/a06-_intersect-2.html)
 
 # Installation
 
