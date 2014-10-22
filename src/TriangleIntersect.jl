@@ -57,7 +57,7 @@ function intersect(r::Ray, t::Triangle)
     t_intersection <= 0 && return (Point(0,0,0), false)
     t_intersection >= 1 && return (Point(0,0,0), false)
     s_intersection + t_intersection >= 1 && return (Point(0,0,0), false)
-    (s_intersection*t.v1+t_intersection*t.v2, true)
+    (t.a + s_intersection*t.v1+t_intersection*t.v2, true)
 end
 
 end # module
