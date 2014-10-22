@@ -14,6 +14,7 @@ Pkg.clone("git://github.com/skariel/TriangleInstersect.jl.git")
 #Usage
 Import and create some points:
 ```Julia
+using TriangleIntersect
 a = Point(0,0,0)
 b = Point(1,0,0)
 c = Point(0,1,0)
