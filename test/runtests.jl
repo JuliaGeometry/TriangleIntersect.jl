@@ -1,5 +1,16 @@
 using TriangleIntersect
 using Base.Test
 
-# write your own tests here
-@test 1 == 1
+a = Point(0,0,0)
+b = Point(1,0,0)
+c = Point(0,1,0)
+t = Triangle(a,b,c)
+r = Ray(Point(0.1,0.1,1), Point(0.1,0.1,-1))
+p, i = intersect(r, t)
+
+@test i == true
+@test p == Point(0.2, 0.2, 0.0)
+
+# yeah, more tests are needed :)
+
+
