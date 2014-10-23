@@ -14,6 +14,8 @@ end
 -(p1::Point, p2::Point) = Point(p1.x-p2.x, p1.y-p2.y, p1.z-p2.z)
 +(p1::Point, p2::Point) = Point(p1.x+p2.x, p1.y+p2.y, p1.z+p2.z)
 cross(p1::Point, p2::Point) = Point(p1.y*p2.z-p1.z*p2.y, -p1.x*p2.z+p1.z*p2.x, p1.x*p2.y-p1.y*p2.x)
+/(p::Point, n::Number) = Point(p.x/n, p.y/n, p.z/n)
+unitize(p::Point) = p/(p*p)
 
 immutable Triangle
     a::Point
@@ -39,6 +41,8 @@ end
 immutable Ray
     origin::Point
     direction::Point
+
+    Ray(a,b) = new(a,unitize(b))
 end
 
 function intersect(r::Ray, t::Triangle)
