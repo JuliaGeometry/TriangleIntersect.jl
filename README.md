@@ -25,13 +25,20 @@ Create a triangle
 t = Triangle(b,a,c)
 ```
 
-Create a ray:
+Cast a ray:
 ```Julia
 r = Ray(Point(0.1,0.1,1), Point(0.1,0.1,-1))
 ```
 
 Check the intersection:
 ```Julia
-p, i = intersect(r, t)
+intersect(r, t) # -> Intersection(Point(0.2,0.2,0.0),1.02,true)
 ```
-`i` here is a boolean, `true` if there is intersection and `false` if not. `p` is the intersection point.
+The `Intersection` type is simply defined as:
+```Julia
+immutable Intersection
+    ip::Point # intersecting point
+    id::Float64 # intersecting distance
+    is_intersection::Bool
+end
+```
