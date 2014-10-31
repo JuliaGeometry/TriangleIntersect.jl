@@ -62,11 +62,11 @@ function intersect(r::Ray, t::Triangle)
     const wv1 = w*t.v1
     const wv2 = w*t.v2
     s_intersection = (t.v1v2*wv2 - t.v2v2*wv1) / t.denom
-    s_intersection <= 0 && no_intersection
-    s_intersection >= 1 && no_intersection
+    s_intersection <= 0 && return no_intersection
+    s_intersection >= 1 && return no_intersection
     t_intersection = (t.v1v2*wv1 - t.v1v1*wv2) / t.denom
-    t_intersection <= 0 && no_intersection
-    t_intersection >= 1 && no_intersection
+    t_intersection <= 0 && return no_intersection
+    t_intersection >= 1 && return no_intersection
     s_intersection + t_intersection >= 1 && return no_intersection
     Intersection(t.a + s_intersection*t.v1+t_intersection*t.v2, ri, true)
 end
