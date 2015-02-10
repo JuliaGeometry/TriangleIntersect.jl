@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/skariel/TriangleIntersect.jl.svg)](https://travis-ci.org/skariel/TriangleIntersect.jl)
+[![Build Status](https://travis-ci.org/JuliaGeometry/TriangleIntersect.jl.svg?branch=master)](https://travis-ci.org/JuliaGeometry/TriangleIntersect.jl)
 [![Coverage Status](https://img.shields.io/coveralls/skariel/TriangleIntersect.jl.svg)](https://coveralls.io/r/skariel/TriangleIntersect.jl)
 
 # TriangleIntersect
