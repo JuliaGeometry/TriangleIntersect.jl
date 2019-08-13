@@ -1,6 +1,8 @@
 module TriangleIntersect
 
-export Point, Triangle, Ray, intersect, Intersection, no_intersection
+import Base: -,*,+,/, intersect
+
+export Point, Triangle, Ray, Intersection, no_intersection
 
 struct Point
     x::Float64
@@ -54,14 +56,14 @@ end
 const no_intersection = Intersection(Point(0,0,0), 0.0, false)
 
 function intersect(r::Ray, t::Triangle)
-    const denom = t.normal*r.direction
+    denom = t.normal*r.direction
     denom == 0 && return no_intersection
     ri = t.normal*(t.a - r.origin) / denom
     ri <= 0 && return no_intersection
     plane_intersection =  ri * r.direction + r.origin
     w = plane_intersection - t.a
-    const wv1 = w*t.v1
-    const wv2 = w*t.v2
+    wv1 = w*t.v1
+    wv2 = w*t.v2
     s_intersection = (t.v1v2*wv2 - t.v2v2*wv1) / t.denom
     s_intersection <= 0 && return no_intersection
     s_intersection >= 1 && return no_intersection
