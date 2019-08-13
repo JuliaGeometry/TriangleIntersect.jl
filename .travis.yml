@@ -1,19 +1,20 @@
-language: cpp
-compiler:
-  - clang
+
+# Documentation: http://docs.travis-ci.com/user/languages/julia/
+language: julia
+os:
+  - linux
+julia:
+  - 1.0
+  - 1.1
+  - 1.2
+  - nightly
 notifications:
   email: false
-env:
-  matrix:
-    - JULIAVERSION="juliareleases"
-    - JULIAVERSION="julianightlies"
-before_install:
-  - sudo add-apt-repository ppa:staticfloat/julia-deps -y
-  - sudo add-apt-repository ppa:staticfloat/${JULIAVERSION} -y
-  - sudo apt-get update -qq -y
-  - sudo apt-get install libpcre3-dev julia -y
-  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-script:
-  - julia -e 'Pkg.init(); Pkg.clone(pwd()); Pkg.test("TriangleIntersect", coverage=true)'
+branches:
+  only: # Only kick off CI for master and potential merges to master from within PRs
+    - master
+matrix:
+  allow_failures:
+    - julia: nightly
 after_success:
-- julia -e 'cd(Pkg.dir("TriangleIntersect")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - julia -e 'using Pkg; import TriangleIntersect; Pkg.add("Coverage"); using Coverage; Coveralls.submit(process_folder())'
