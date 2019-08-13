@@ -8,7 +8,7 @@ Find if and where a light ray intersects a triangle (in 3D of course). This is o
 # Installation
 
 ```Julia
-Pkg.clone("git://github.com/skariel/TriangleIntersect.jl.git")
+Pkg.clone("git://github.com/JuliaGeometry/TriangleIntersect.jl.git")
 ```
 
 #Usage
