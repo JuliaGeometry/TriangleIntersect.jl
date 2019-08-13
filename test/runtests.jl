@@ -1,5 +1,5 @@
 using TriangleIntersect
-using Base.Test
+using Test
 
 a = Point(0,0,0)
 b = Point(1,0,0)
